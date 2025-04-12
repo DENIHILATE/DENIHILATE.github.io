@@ -27,3 +27,24 @@ h2 {
 p {
     font-size: 8px;
 }
+
+selector {
+    font-family: 'Drunk', fallback;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+}
+
+h2 {
+    font-family: 'Drunk', drunkfont;
+
+}
+
+p {
+    font-family: 'Arial', sans-serif;
+}
