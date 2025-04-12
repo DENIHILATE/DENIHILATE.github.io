@@ -1,41 +1,109 @@
-@font-face {
-    font-family: 'Drunk';
-    src: url('drunkfont.otf') format('opentype'); /* fixed format name */
+/* Reset + Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #111; /* Full Page Color */
-    color: #eee;
-    font-family: sans-serif;
-    text-align: center;
-    display: flex; /* fixed typo: "felx" → "flex" */
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: white;
+}
+
+/* Main scroll wrapper */
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-behavior: auto;
+}
+
+    /* Lock input while scrolling */
+    .scroll-container.lock-scroll {
+        pointer-events: none;
+    }
+
+/* Each section */
+.slide {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding: 40px;
 }
 
-/* Removed "selector" block — not needed */
-body {
-    font-family: 'Arial', sans-serif;
-}
-
+/* Hero */
 h1 {
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
-    font-size: 20px;
+    background-color: #111;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 10px;
+    text-shadow: 2px 3px 2px rgb(128, 128, 128, 0.75);
 }
 
 #logo {
-    max-width: 900px; /* fixed: missing "px" */
-    width: 80%;        /* fixed typo: "widht" → "width" */
+    max-width: 600px;
+    width: 80%;
     height: auto;
-    margin: 20px auto;
+    margin: 20px 0;
+    animation: pulse-glow 4s infinite ease-in-out;
 }
 
 p {
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
-    font-size: 16px;
+    background-color: #111;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+    text-shadow: 1.5px 2px 2px rgb(128, 128, 128, 0.75);
+}
+
+/* Menu Section */
+#menu {
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #111;
+}
+
+.menu-left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 60px;
+}
+
+    .menu-left ul {
+        list-style: none;
+        font-size: 24px;
+    }
+
+    .menu-left li {
+        margin: 16px 0;
+    }
+
+/* Preview image box */
+.menu-preview {
+    width: 50%;
+    height: 80%;
+    background: url('preview.png') center center / cover no-repeat;
+    filter: blur(4px);
+    border-radius: 10px;
+    margin-right: 60px;
+}
+
+@keyframes pulse-glow {
+    0% {
+        filter: drop-shadow(0 0 5px #7000ba);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 25px #7000ba);
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px #7000ba);
+    }
 }

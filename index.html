@@ -6,8 +6,84 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>This is</h1>
-    <img src="denihilate-logo.png" alt="DENIHILATE Logo" id="logo">
-    <p>Discover more about who I am and what I do.</p>
+    <div class="scroll-container">
+
+        <!-- Section 1 -->
+        <section class="slide" id="hero">
+            <h1>This is</h1>
+            <img src="denihilate-logo.png" alt="DENIHILATE Logo" id="logo">
+            <p>Discover more about who I am and what I do.</p>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="slide" id="menu">
+            <div class="menu-left">
+                <ul>
+                    <li>Who am I?</li>
+                    <li>What I Do</li>
+                    <li>Things about Me</li>
+                    <li>My Knowledge</li>
+                    <li>Some Stuff I Made</li>
+                    <li>Where you can Find Me</li>
+                </ul>
+            </div>
+            <div class="menu-preview"></div>
+        </section>
+
+    </div>
+
+    <!-- Scroll JS -->
+    <script>
+        let isScrolling = false;
+
+        function smoothScrollTo(element, targetY, duration = 900) {
+            const startY = element.scrollTop;
+            const distance = targetY - startY;
+            const startTime = performance.now();
+
+            function step(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = 0.5 - Math.cos(progress * Math.PI) / 2; // easeInOut
+
+                element.scrollTop = startY + distance * ease;
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    isScrolling = false;
+                    document.querySelector('.scroll-container').classList.remove("lock-scroll");
+                }
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        document.addEventListener("wheel", function (e) {
+            if (isScrolling) return;
+
+            const container = document.querySelector(".scroll-container");
+            const sections = document.querySelectorAll(".slide");
+            let current = Math.round(container.scrollTop / window.innerHeight);
+
+            const goingDown = e.deltaY > 0;
+            const goingUp = e.deltaY < 0;
+
+            if ((goingDown && current >= sections.length - 1) ||
+                (goingUp && current <= 0)) {
+                e.preventDefault();
+                return;
+            }
+
+            if (goingDown) current++;
+            if (goingUp) current--;
+
+            isScrolling = true;
+            container.classList.add("lock-scroll");
+            smoothScrollTo(container, current * window.innerHeight, 900);
+
+            e.preventDefault();
+        }, { passive: false });
+    </script>
 </body>
 </html>
