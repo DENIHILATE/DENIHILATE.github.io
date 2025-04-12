@@ -8,24 +8,7 @@ body {
     background-color: #111;
     color: #eee;
     text-align: center;
-    margin-top: 10%;
-}
-h1 {
-    color: #ffffff;
-}
-h2 {
-    color: #ba0000;
-}
-
-font-size: value;
-h1 {
-    font-size: 14px;
-}
-h2 {
-    font-size: 46px;
-}
-p {
-    font-size: 12px;
+    margin-top: 5%;
 }
 
 selector {
@@ -38,13 +21,18 @@ body {
 
 h1 {
     font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    font-size: 20px;
 }
 
 h2 {
-    font-family: 'Drunk', drunkfont;
-
+    font-family: 'Drunk', fallback;
+    color: #ba0000;
+    font-size: 64px;
 }
 
 p {
     font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    font-size: 16px;
 }
