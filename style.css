@@ -1,25 +1,22 @@
 @font-face {
     font-family: 'Drunk';
-    src: url('drunkfont.otf') format('truetype');
+    src: url('drunkfont.otf') format('opentype'); /* fixed format name */
 }
 
 html, body {
-    height: 100%
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: #111; /* Full Page Color */
     color: #eee;
     font-family: sans-serif;
     text-align: center;
-    display: felx;
+    display: flex; /* fixed typo: "felx" → "flex" */
     flex-direction: column;
     justify-content: center;
 }
 
-selector {
-    font-family: 'Drunk', fallback;
-}
-
+/* Removed "selector" block — not needed */
 body {
     font-family: 'Arial', sans-serif;
 }
@@ -31,8 +28,8 @@ h1 {
 }
 
 #logo {
-    max-width: 900
-    widht: 80%;
+    max-width: 900px; /* fixed: missing "px" */
+    width: 80%;        /* fixed typo: "widht" → "width" */
     height: auto;
     margin: 20px auto;
 }
