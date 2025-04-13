@@ -1,38 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>DENIHILATE</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class="scroll-container">
 
-        <!-- Section 1 -->
+        <!-- Hero -->
         <section class="slide" id="hero">
             <h1>This is</h1>
             <img src="denihilate-logo.png" alt="DENIHILATE Logo" id="logo">
             <p>Discover more about who I am and what I do.</p>
         </section>
 
-        <!-- Section 2 -->
+        <!-- Menu -->
         <section class="slide" id="menu">
             <div class="menu-left">
                 <ul>
-                    <li>Who am I?</li>
-                    <li>What I Do</li>
-                    <li>Things about Me</li>
-                    <li>My Knowledge</li>
-                    <li>Some Stuff I Made</li>
-                    <li>Where you can Find Me</li>
+                    <li><a href="#whoami">Who am I?</a></li>
+                    <li><a href="#whatido">What I Do</a></li>
+                    <li><a href="#aboutme">Things about Me</a></li>
+                    <li><a href="#knowledge">My Knowledge</a></li>
+                    <li><a href="#projects">Some Stuff I Made</a></li>
+                    <li><a href="#contact">Where you can Find Me</a></li>
                 </ul>
             </div>
             <div class="menu-preview"></div>
         </section>
 
+        <!-- Content Sections -->
+        <section class="slide" id="whoami"><div class="section-content scroll-inner"><h2>Who Am I?</h2><p>Bla Bla Bla...</p></div></section>
+        <section class="slide" id="whatido"><div class="section-content scroll-inner"><h2>What I Do</h2><p>Bla Bla Bla...</p></div></section>
+        <section class="slide" id="aboutme"><div class="section-content scroll-inner"><h2>Things About Me</h2><p>Bla Bla Bla...</p></div></section>
+        <section class="slide" id="knowledge"><div class="section-content scroll-inner"><h2>My Knowledge</h2><p>Bla Bla Bla...</p></div></section>
+
+        <!-- Projects Section -->
+        <section class="slide" id="projects">
+            <div class="section-content">
+                <div class="projects-header">
+                    <h2>Stuff I Made</h2>
+                    <div class="toggle-buttons">
+                        <button onclick="showProjects('images')">Images</button>
+                        <button onclick="showProjects('music')">Music</button>
+                    </div>
+                </div>
+
+                <!-- Image Projects -->
+                <div class="project-list images-list" id="images">
+                    <div class="project-item">
+                        <div class="thumbnail" onclick="openLightbox('finall.png')">
+                            <img src="finall.png" alt="Image 1">
+                        </div>
+                        <div class="caption-wrapper"><span class="image-caption">A River Deep in a Jungle Canyon</span></div>
+                    </div>
+                    <div class="project-item">
+                        <div class="thumbnail" onclick="openLightbox('placeholder1.png')">
+                            <img src="placeholder1.png" alt="Image 2">
+                        </div>
+                        <div class="caption-wrapper"><span class="image-caption">Image 2</span></div>
+                    </div>
+                    <div class="project-item">
+                        <div class="thumbnail" onclick="openLightbox('placeholder2.png')">
+                            <img src="placeholder2.png" alt="Image 3">
+                        </div>
+                        <div class="caption-wrapper"><span class="image-caption">Image 3</span></div>
+                    </div>
+                    <div class="project-item">
+                        <div class="thumbnail" onclick="openLightbox('placeholder3.png')">
+                            <img src="placeholder3.png" alt="Image 4">
+                        </div>
+                        <div class="caption-wrapper"><span class="image-caption">Image 4</span></div>
+                    </div>
+                    <div class="project-item">
+                        <div class="thumbnail" onclick="openLightbox('placeholder4.png')">
+                            <img src="placeholder4.png" alt="Image 5">
+                        </div>
+                        <div class="caption-wrapper"><span class="image-caption">Image 5</span></div>
+                    </div>
+                    <div class="project-item folder">
+                        <div class="thumbnail" onclick="alert('Gallery coming soon!')">
+                            <div class="folder-collage">
+                                <img src="placeholder5.png" alt="">
+                                <img src="placeholder6.png" alt="">
+                                <img src="placeholder7.png" alt="">
+                                <img src="placeholder8.png" alt="">
+                            </div>
+                        </div>
+                        <div class="caption-wrapper"><span class="image-caption">More Images</span></div>
+                    </div>
+                </div>
+
+                <!-- Music Projects -->
+                <div class="project-list music-list" id="music" style="display: none;">
+                    <div class="music-pair">
+                        <div class="project-item">
+                            <div class="project-text">
+                                <h3>Main Song</h3>
+                                <p>This is one of my latest tracks.</p>
+                            </div>
+                            <iframe style="border-radius:12px"
+                                    src="https://open.spotify.com/embed/track/6IZk7UqTETtccTGkVV2paF?utm_source=generator&theme=0"
+                                    width="100%" height="152" frameBorder="0" allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-text">
+                                <h3>Chill Vibes</h3>
+                                <p>If you're into something calmer, try this:</p>
+                            </div>
+                            <iframe style="border-radius:12px"
+                                    src="https://open.spotify.com/embed/track/5s5DIELC5FSY2j1hSKjlMr?utm_source=generator&theme=0"
+                                    width="100%" height="152" frameBorder="0" allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div> <!-- END .music-pair -->
+                    <!-- Volume control should go here -->
+                    <div class="volume-control">
+                        <input type="range" id="volumeSlider" min="0" max="100" value="50" />
+                        <span id="volumeValue">50%</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="slide" id="contact">
+            <div class="section-content scroll-inner">
+                <h2>Where You Can Find Me</h2>
+                <p>Discord: ...<br>Instagram: ...<br>SoundCloud: ...</p>
+            </div>
+        </section>
     </div>
 
-    <!-- Scroll JS -->
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-inner">
+            <img id="lightbox-img" src="" alt="Full Image">
+            <span class="lightbox-hint">(Click anywhere to Close)</span>
+        </div>
+    </div>
+
     <script>
         let isScrolling = false;
 
@@ -44,33 +157,28 @@
             function step(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                const ease = 0.5 - Math.cos(progress * Math.PI) / 2; // easeInOut
-
+                const ease = 0.5 - Math.cos(progress * Math.PI) / 2;
                 element.scrollTop = startY + distance * ease;
 
                 if (progress < 1) {
                     requestAnimationFrame(step);
                 } else {
                     isScrolling = false;
-                    document.querySelector('.scroll-container').classList.remove("lock-scroll");
+                    element.classList.remove("lock-scroll");
                 }
             }
-
             requestAnimationFrame(step);
         }
 
         document.addEventListener("wheel", function (e) {
             if (isScrolling) return;
-
             const container = document.querySelector(".scroll-container");
             const sections = document.querySelectorAll(".slide");
             let current = Math.round(container.scrollTop / window.innerHeight);
-
             const goingDown = e.deltaY > 0;
             const goingUp = e.deltaY < 0;
 
-            if ((goingDown && current >= sections.length - 1) ||
-                (goingUp && current <= 0)) {
+            if ((goingDown && current >= sections.length - 1) || (goingUp && current <= 0)) {
                 e.preventDefault();
                 return;
             }
@@ -81,9 +189,61 @@
             isScrolling = true;
             container.classList.add("lock-scroll");
             smoothScrollTo(container, current * window.innerHeight, 900);
-
             e.preventDefault();
         }, { passive: false });
+
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = imageSrc;
+            lightbox.style.display = 'flex';
+            setTimeout(() => lightbox.classList.add('show'), 100);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('show');
+            setTimeout(() => {
+                lightbox.style.display = 'none';
+                document.getElementById('lightbox-img').src = '';
+            }, 300);
+        }
+
+        function showProjects(type) {
+            const images = document.getElementById('images');
+            const music = document.getElementById('music');
+            if (type === 'images') {
+                images.style.display = 'grid';
+                music.style.display = 'none';
+            } else {
+                images.style.display = 'none';
+                music.style.display = 'flex';
+            }
+        }
+
+        document.querySelectorAll('.menu-left a').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                const container = document.querySelector('.scroll-container');
+                const sections = Array.from(document.querySelectorAll('.slide'));
+                const index = sections.indexOf(target);
+                if (index !== -1) {
+                    isScrolling = true;
+                    container.classList.add("lock-scroll");
+                    smoothScrollTo(container, index * window.innerHeight, 900);
+                }
+            });
+        });
+
+        const volumeSlider = document.getElementById("volumeSlider");
+        if (volumeSlider) {
+            volumeSlider.addEventListener("input", function () {
+                const val = this.value;
+                document.getElementById("volumeValue").textContent = val + "%";
+            });
+        }
+
     </script>
 </body>
 </html>
