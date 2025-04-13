@@ -2,248 +2,363 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>DENIHILATE</title>
+    <title>DENIHILATE</title> <!-- Browser tab title -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="scroll-container">
+    <div class="scroll-container" id="scroll-container">
 
-        <!-- Hero -->
+        <!-- HERO SECTION -->
         <section class="slide" id="hero">
-            <h1>This is</h1>
+            <h1 class="hero-title">This is</h1> <!-- Big text on hero page -->
             <img src="denihilate-logo.png" alt="DENIHILATE Logo" id="logo">
-            <p>Discover more about who I am and what I do.</p>
+            <p class="hero-subtext">Discover more about who I am and what I do.</p> <!-- Subheading under logo -->
         </section>
 
-        <!-- Menu -->
+        <!-- MENU SECTION -->
         <section class="slide" id="menu">
-            <div class="menu-left">
-                <ul>
-                    <li><a href="#whoami">Who am I?</a></li>
-                    <li><a href="#whatido">What I Do</a></li>
-                    <li><a href="#aboutme">Things about Me</a></li>
-                    <li><a href="#knowledge">My Knowledge</a></li>
-                    <li><a href="#projects">Some Stuff I Made</a></li>
-                    <li><a href="#contact">Where you can Find Me</a></li>
-                </ul>
+            <div class="section-content">
+                <div class="menu-left">
+                    <ul>
+                        <li><a href="#whoami">Who am I?</a></li>
+                        <li><a href="#whatido">What I Do</a></li>
+                        <li><a href="#aboutme">Things about Me</a></li>
+                        <li><a href="#knowledge">My Knowledge</a></li>
+                        <li><a href="#projects">Some Stuff I Made</a></li>
+                        <li><a href="#contact">Where you can Find Me</a></li>
+                    </ul>
+                </div>
+                <div class="menu-preview"></div>
             </div>
-            <div class="menu-preview"></div>
         </section>
 
-        <!-- Content Sections -->
-        <section class="slide" id="whoami"><div class="section-content scroll-inner"><h2>Who Am I?</h2><p>Bla Bla Bla...</p></div></section>
-        <section class="slide" id="whatido"><div class="section-content scroll-inner"><h2>What I Do</h2><p>Bla Bla Bla...</p></div></section>
-        <section class="slide" id="aboutme"><div class="section-content scroll-inner"><h2>Things About Me</h2><p>Bla Bla Bla...</p></div></section>
-        <section class="slide" id="knowledge"><div class="section-content scroll-inner"><h2>My Knowledge</h2><p>Bla Bla Bla...</p></div></section>
+        <!-- SECTION: Who Am I -->
+        <section class="slide" id="whoami">
+            <div class="section-content scroll-inner whoami-flex-wrapper">
+                <h2 class="title-whoami">Who Am I?</h2>
 
-        <!-- Projects Section -->
+                <div class="whoami-text-wrapper">
+                    <p class="text-whoami">
+                        I don’t just dream things—I <span class="highlight">build</span> them. Everything I create, from visuals to music to code, has my fingerprints on it.
+                    </p>
+                    <p class="text-whoami">
+                        My work isn’t random. I work with <span class="highlight">intention</span>. I break things down and rebuild them until they feel exactly right.
+                    </p>
+                    <p class="text-whoami">
+                        My aesthetic is strong. Clean layouts. Dark energy. Smooth animations. Heavy drops. Everything I put out reflects my style—if it carries my name, it’s done <span class="highlight">right</span>.
+                    </p>
+                    <p class="text-whoami final-line">
+                        I might not be the best—but I’m giving it my all, and it shows.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: What I Do -->
+        <section class="slide" id="whatido">
+            <div class="section-content scroll-inner">
+                <h2 class="title-whatido">What I Do</h2>
+
+                <div class="whatido-text-wrapper">
+                    <p class="text-whatido">
+                        I <span class="highlight">create</span>. From <span class="highlight">music</span> that resonates with emotion to <span class="highlight">digital art</span> that brings my imagination to life, I express myself through various mediums.
+                    </p>
+                    <p class="text-whatido">
+                        My passion for <span class="highlight">3D art</span>, paired with occasional ventures into <span class="highlight">2D</span>, allows me to craft visually striking designs.
+                    </p>
+                    <p class="text-whatido">
+                        <span class="highlight">Photography</span> is another outlet where I capture and edit moments, telling stories through the lens.
+                    </p>
+                    <p class="text-whatido">
+                        Alongside this, I immerse myself in <span class="highlight">gaming</span>, constantly seeking new experiences, and am even developing my own <span class="highlight">game</span>.
+                    </p>
+                    <p class="text-whatido">
+                        This <span class="highlight">website</span>? It’s my canvas, a space where I break free from convention and shape a digital identity that reflects my evolving creativity. Looking a bit Empty? Thats because My <span class="highlight">Story</span> has just Begun.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="aboutme">
+            <div class="section-content scroll-inner">
+                <h2 class="title-aboutme">Things About Me</h2>
+
+                <div class="aboutme-text-wrapper">
+                    <p class="text-aboutme">
+                        I’m <span class="highlight">Dennis</span>, a <span class="highlight">21-year-old</span> from <span class="highlight">Germany</span>. I create <span class="highlight">music</span>, <span class="highlight">digital art</span>, and <span class="highlight">photography</span>, always pushing myself to <span class="highlight">learn</span> new things and expand my horizons.
+                    </p>
+                    <p class="text-aboutme">
+                        My journey in <span class="highlight">music</span> is inspired by artists like <a href="https://open.spotify.com/artist/2lpFs8QJyIeVDb2Sq4vZYi?si=V1GE4uAwQ2ij5SgqKLbs-g" target="_blank" class="spotify-link">Rooler</a>, <a href="https://open.spotify.com/artist/5PbgCU02dfdBCAzpOaNmYW?si=47HFvTiJTTGeZDMZzZfynQ" target="_blank" class="spotify-link">Sickmode</a>, with a style rooted in <span class="highlight">Hardstyle</span> and <span class="highlight">Rawstyle</span>, while my softer side is shaped by artists like <a href="https://open.spotify.com/artist/3wcj11K77LjEY1PkEazffa?si=y4vf2MI2S36TEhgAR0kPew" target="_blank" class="spotify-link">Burna Boy</a>, <a href="https://open.spotify.com/artist/6IhG3Yxm3UW98jhyBvrIut?si=Jf0rIjrARBCO7cXOTVWdXA" target="_blank" class="spotify-link">Tekno</a>, and <a href="https://open.spotify.com/artist/3ZpEKRjHaHANcpk10u6Ntq?si=GN1tq3BOQQqx-mycGn2t3A" target="_blank" class="spotify-link">Ayra Starr</a>.
+                    </p>
+                    <p class="text-aboutme">
+                        In addition to creating music, I’m deeply involved in <span class="highlight">digital art</span>—especially <span class="highlight">3D art</span>. I occasionally experiment with <span class="highlight">2D</span> art, always pushing my creative boundaries.
+                    </p>
+                    <p class="text-aboutme">
+                        I’m also passionate about <span class="highlight">photography</span>, capturing moments, and editing photos to tell visual stories.
+                    </p>
+                    <p class="text-aboutme">
+                        <span class="highlight">Gaming</span> is another one of my passions. I dive into games to experience new worlds, and I’m even working on developing my own <span class="highlight">game</span>.
+                    </p>
+                    <p class="text-aboutme">
+                        This <span class="highlight">website</span> is my personal space where I can break free from conventions and truly reflect my evolving creativity. If it feels a bit empty, that’s because my <span class="highlight">story</span> has only just begun.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION: My Knowledge -->
+        <section class="slide" id="knowledge">
+            <div class="section-content scroll-inner">
+                <h2 class="title-knowledge">My Knowledge</h2>
+                <p class="text-knowledge">Bla Bla Bla...</p>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
         <section class="slide" id="projects">
             <div class="section-content">
                 <div class="projects-header">
-                    <h2>Stuff I Made</h2>
+                    <h2 class="projects-title">Stuff I Made</h2>
                     <div class="toggle-buttons">
                         <button onclick="showProjects('images')">Images</button>
                         <button onclick="showProjects('music')">Music</button>
                     </div>
                 </div>
 
-                <!-- Image Projects -->
+                <!-- IMAGE PROJECTS -->
                 <div class="project-list images-list" id="images">
                     <div class="project-item">
                         <div class="thumbnail" onclick="openLightbox('finall.png')">
                             <img src="finall.png" alt="Image 1">
                         </div>
-                        <div class="caption-wrapper"><span class="image-caption">A River Deep in a Jungle Canyon</span></div>
+                        <div class="caption-wrapper">
+                            <span class="image-caption">A River Deep in a Jungle Canyon</span>
+                        </div>
                     </div>
+
                     <div class="project-item">
                         <div class="thumbnail" onclick="openLightbox('placeholder1.png')">
                             <img src="placeholder1.png" alt="Image 2">
                         </div>
-                        <div class="caption-wrapper"><span class="image-caption">Image 2</span></div>
+                        <div class="caption-wrapper">
+                            <span class="image-caption">Image 2</span>
+                        </div>
                     </div>
+
                     <div class="project-item">
                         <div class="thumbnail" onclick="openLightbox('placeholder2.png')">
                             <img src="placeholder2.png" alt="Image 3">
                         </div>
-                        <div class="caption-wrapper"><span class="image-caption">Image 3</span></div>
+                        <div class="caption-wrapper">
+                            <span class="image-caption">Image 3</span>
+                        </div>
                     </div>
+
                     <div class="project-item">
                         <div class="thumbnail" onclick="openLightbox('placeholder3.png')">
                             <img src="placeholder3.png" alt="Image 4">
                         </div>
-                        <div class="caption-wrapper"><span class="image-caption">Image 4</span></div>
+                        <div class="caption-wrapper">
+                            <span class="image-caption">Image 4</span>
+                        </div>
                     </div>
+
                     <div class="project-item">
                         <div class="thumbnail" onclick="openLightbox('placeholder4.png')">
                             <img src="placeholder4.png" alt="Image 5">
                         </div>
-                        <div class="caption-wrapper"><span class="image-caption">Image 5</span></div>
+                        <div class="caption-wrapper">
+                            <span class="image-caption">Image 5</span>
+                        </div>
                     </div>
+
                     <div class="project-item folder">
                         <div class="thumbnail" onclick="alert('Gallery coming soon!')">
                             <div class="folder-collage">
-                                <img src="placeholder5.png" alt="">
-                                <img src="placeholder6.png" alt="">
-                                <img src="placeholder7.png" alt="">
-                                <img src="placeholder8.png" alt="">
+                                <img src="placeholder5.png">
+                                <img src="placeholder6.png">
+                                <img src="placeholder7.png">
+                                <img src="placeholder8.png">
                             </div>
                         </div>
-                        <div class="caption-wrapper"><span class="image-caption">More Images</span></div>
+                        <div class="caption-wrapper">
+                            <span class="image-caption">More Images</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Music Projects -->
+                <!-- MUSIC PROJECTS -->
                 <div class="project-list music-list" id="music" style="display: none;">
                     <div class="music-pair">
-                        <div class="project-item">
+                        <!-- SONG 1 -->
+                        <div class="music-block">
                             <div class="project-text">
-                                <h3>Main Song</h3>
-                                <p>This is one of my latest tracks.</p>
+                                <h3 class="music-title-1">Main Song</h3>
+                                <p class="music-desc-1">This is one of my latest tracks.</p>
                             </div>
-                            <iframe style="border-radius:12px"
-                                    src="https://open.spotify.com/embed/track/6IZk7UqTETtccTGkVV2paF?utm_source=generator&theme=0"
-                                    width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            <iframe src="https://open.spotify.com/embed/track/6IZk7UqTETtccTGkVV2paF?utm_source=generator&theme=0"
+                                    width="100%" height="152" frameborder="0" allowfullscreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"></iframe>
                         </div>
 
-                        <div class="project-item">
+                        <!-- SONG 2 -->
+                        <div class="music-block">
                             <div class="project-text">
-                                <h3>Chill Vibes</h3>
-                                <p>If you're into something calmer, try this:</p>
+                                <h3 class="music-title-2">Chill Vibes</h3>
+                                <p class="music-desc-2">If you're into something calmer, try this.</p>
                             </div>
-                            <iframe style="border-radius:12px"
-                                    src="https://open.spotify.com/embed/track/5s5DIELC5FSY2j1hSKjlMr?utm_source=generator&theme=0"
-                                    width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            <iframe src="https://open.spotify.com/embed/track/5s5DIELC5FSY2j1hSKjlMr?utm_source=generator&theme=0"
+                                    width="100%" height="152" frameborder="0" allowfullscreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"></iframe>
                         </div>
-                    </div> <!-- END .music-pair -->
-                    <!-- Volume control should go here -->
-                    <div class="volume-control">
-                        <input type="range" id="volumeSlider" min="0" max="100" value="50" />
-                        <span id="volumeValue">50%</span>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- Contact -->
+        <!-- SECTION: Contact -->
         <section class="slide" id="contact">
             <div class="section-content scroll-inner">
-                <h2>Where You Can Find Me</h2>
-                <p>Discord: ...<br>Instagram: ...<br>SoundCloud: ...</p>
+                <h2 class="title-contact">Where You can Find Me</h2>
+
+                <!-- Wrapper to vertically center this block -->
+                <div class="contact-links-wrapper">
+                    <p class="text-contact"><a class="link-spotify" href="https://open.spotify.com/artist/3HxotVOIg9MjgDloE4jUWj?si=2krcsJ5TRkqtQhtszZ4vxg" target="_blank">Main Spotify</a></p>
+                    <p class="text-contact"><a class="link-spotify" href="https://open.spotify.com/artist/0aiv6XwMfCUOYVPgZh3CyS?si=COXJVLoISa2xjcFmAnWHaA" target="_blank">Secondary Spotify</a></p>
+                    <p class="text-contact"><a class="link-soundcloud" href="https://soundcloud.com/denihilate" target="_blank">SoundCloud</a></p>
+                    <p class="text-contact"><a class="link-instagram" href="https://www.instagram.com/denihilate" target="_blank">Instagram</a></p>
+                    <p class="text-contact"><a class="link-tiktok" href="https://www.tiktok.com/@denihilate?lang=en" target="_blank">TikTok</a></p>
+                    <p class="text-contact"><a class="link-discord" href="https://discord.com/users/331772366218854402" target="_blank">Discord</a></p>
+                    <p class="text-contact"><a class="link-steam" href="https://steamcommunity.com/id/DENIHILATE/" target="_blank">Steam</a></p>
+                </div>
             </div>
         </section>
-    </div>
 
-    <!-- Lightbox -->
-    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
-        <div class="lightbox-inner">
-            <img id="lightbox-img" src="" alt="Full Image">
-            <span class="lightbox-hint">(Click anywhere to Close)</span>
+        <!-- LIGHTBOX FOR IMAGE VIEW -->
+        <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+            <div class="lightbox-inner">
+                <img id="lightbox-img" src="" alt="Full Image">
+                <span class="lightbox-hint">(Click anywhere to Close)</span>
+            </div>
         </div>
-    </div>
 
-    <script>
-        let isScrolling = false;
+        <!-- SMOOTH SCROLL + LIGHTBOX JS -->
+        <script>
+            let isScrolling = false;
 
-        function smoothScrollTo(element, targetY, duration = 900) {
-            const startY = element.scrollTop;
-            const distance = targetY - startY;
-            const startTime = performance.now();
+            function smoothScrollTo(element, targetY, duration = 900) {
+                const startY = element.scrollTop;
+                const distance = targetY - startY;
+                const startTime = performance.now();
 
-            function step(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const ease = 0.5 - Math.cos(progress * Math.PI) / 2;
-                element.scrollTop = startY + distance * ease;
+                function step(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const ease = 0.5 - Math.cos(progress * Math.PI) / 2;
+                    element.scrollTop = startY + distance * ease;
 
-                if (progress < 1) {
-                    requestAnimationFrame(step);
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        isScrolling = false;
+                        element.classList.remove("lock-scroll");
+                    }
+                }
+                requestAnimationFrame(step);
+            }
+
+            document.addEventListener("wheel", function (e) {
+                if (isScrolling) return;
+                const container = document.querySelector(".scroll-container");
+                const sections = document.querySelectorAll(".slide");
+                let current = Math.round(container.scrollTop / window.innerHeight);
+                const goingDown = e.deltaY > 0;
+                const goingUp = e.deltaY < 0;
+
+                if ((goingDown && current >= sections.length - 1) || (goingUp && current <= 0)) {
+                    e.preventDefault();
+                    return;
+                }
+
+                if (goingDown) current++;
+                if (goingUp) current--;
+
+                isScrolling = true;
+                container.classList.add("lock-scroll");
+                smoothScrollTo(container, current * window.innerHeight, 900);
+                e.preventDefault();
+            }, { passive: false });
+
+            function openLightbox(imageSrc) {
+                const lightbox = document.getElementById('lightbox');
+                document.getElementById('lightbox-img').src = imageSrc;
+                lightbox.style.display = 'flex';
+                setTimeout(() => lightbox.classList.add('show'), 100);
+            }
+
+            function closeLightbox() {
+                const lightbox = document.getElementById('lightbox');
+                lightbox.classList.remove('show');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    document.getElementById('lightbox-img').src = '';
+                }, 300);
+            }
+
+            function showProjects(type) {
+                const images = document.getElementById('images');
+                const music = document.getElementById('music');
+                const projectsSection = document.getElementById('projects');
+
+                if (type === 'images') {
+                    images.style.display = 'grid';
+                    music.style.display = 'none';
+                    projectsSection.style.paddingBottom = '40px';
                 } else {
-                    isScrolling = false;
-                    element.classList.remove("lock-scroll");
+                    images.style.display = 'none';
+                    music.style.display = 'flex';
+                    projectsSection.style.paddingBottom = '160px'; // adds space when music is selected
                 }
             }
-            requestAnimationFrame(step);
-        }
 
-        document.addEventListener("wheel", function (e) {
-            if (isScrolling) return;
-            const container = document.querySelector(".scroll-container");
-            const sections = document.querySelectorAll(".slide");
-            let current = Math.round(container.scrollTop / window.innerHeight);
-            const goingDown = e.deltaY > 0;
-            const goingUp = e.deltaY < 0;
+            document.querySelectorAll('.menu-left a').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+                    const container = document.querySelector('.scroll-container');
+                    const sections = Array.from(document.querySelectorAll('.slide'));
+                    const index = sections.indexOf(target);
+                    if (index !== -1) {
+                        isScrolling = true;
+                        container.classList.add("lock-scroll");
+                        smoothScrollTo(container, index * window.innerHeight, 900);
+                    }
+                });
+            });
 
-            if ((goingDown && current >= sections.length - 1) || (goingUp && current <= 0)) {
-                e.preventDefault();
-                return;
-            }
-
-            if (goingDown) current++;
-            if (goingUp) current--;
-
-            isScrolling = true;
-            container.classList.add("lock-scroll");
-            smoothScrollTo(container, current * window.innerHeight, 900);
-            e.preventDefault();
-        }, { passive: false });
-
-        function openLightbox(imageSrc) {
-            const lightbox = document.getElementById('lightbox');
-            document.getElementById('lightbox-img').src = imageSrc;
-            lightbox.style.display = 'flex';
-            setTimeout(() => lightbox.classList.add('show'), 100);
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('show');
-            setTimeout(() => {
-                lightbox.style.display = 'none';
-                document.getElementById('lightbox-img').src = '';
-            }, 300);
-        }
-
-        function showProjects(type) {
-            const images = document.getElementById('images');
-            const music = document.getElementById('music');
-            if (type === 'images') {
-                images.style.display = 'grid';
-                music.style.display = 'none';
-            } else {
-                images.style.display = 'none';
-                music.style.display = 'flex';
-            }
-        }
-
-        document.querySelectorAll('.menu-left a').forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const target = document.getElementById(targetId);
-                const container = document.querySelector('.scroll-container');
-                const sections = Array.from(document.querySelectorAll('.slide'));
-                const index = sections.indexOf(target);
-                if (index !== -1) {
-                    isScrolling = true;
-                    container.classList.add("lock-scroll");
-                    smoothScrollTo(container, index * window.innerHeight, 900);
+            // Show/hide back to top button
+            document.getElementById("scroll-container").addEventListener("scroll", function () {
+                const btn = document.getElementById("backToTop");
+                if (document.getElementById("scroll-container").scrollTop > window.innerHeight * 0.5) {
+                    btn.classList.add("visible");
+                } else {
+                    btn.classList.remove("visible");
                 }
             });
-        });
 
-        const volumeSlider = document.getElementById("volumeSlider");
-        if (volumeSlider) {
-            volumeSlider.addEventListener("input", function () {
-                const val = this.value;
-                document.getElementById("volumeValue").textContent = val + "%";
-            });
-        }
+            // Scroll to top function
+            function scrollToTop() {
+                const container = document.getElementById("scroll-container");
+                smoothScrollTo(container, 0, 900); // 900ms same as menu click
+            }
 
-    </script>
+        </script>
+
+        <!-- Back to Top Button -->
+        <button id="backToTop" onclick="scrollToTop()">▲ Top</button>
 </body>
 </html>
