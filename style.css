@@ -50,6 +50,13 @@ html, body {
     box-sizing: border-box;
 }
 
+/* Ensure slide doesn't collapse on mobile when content is too tall */
+@media (max-width: 768px) {
+    .slide {
+        min-height: 100vh;
+    }
+}
+
 /* ------------------- HERO PAGE ------------------- */
 .hero-title {
     font-size: 30px;
@@ -640,6 +647,28 @@ iframe {
         align-items: center;
         gap: 10px;
     }
+
+    #menu {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .menu-left {
+        width: 100%;
+        align-items: center;
+    }
+
+        .menu-left ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-left li {
+            margin: 10px 0;
+        }
 
     .music-pair {
         flex-direction: column;
