@@ -39,7 +39,7 @@ html, body {
 
 /* Global style for each full-page section */
 .slide {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     scroll-snap-align: start;
     display: flex;
