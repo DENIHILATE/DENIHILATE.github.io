@@ -14,7 +14,7 @@
 /* Global settings for background, font, and layout */
 html, body {
     height: 100%;
-    font-family: Coolvetica, fallback;
+    font-family: Coolvetica, 'Barlow Condensed', sans-serif;
     background-color: #111;
     color: white;
     overflow: hidden;
@@ -149,15 +149,14 @@ html, body {
 }
 
 .text-contact {
-    text-align: center; /* ✅ Only center the link lines */
+    text-align: center;
     margin: 5px 0;
 }
 
-    /* Contact link style */
     .text-contact a {
         font-size: 28px;
         color: white;
-        font-family: Coolvetica, sans-serif;
+        font-family: Coolvetica, 'Barlow Condensed', sans-serif;
         text-decoration: none;
         text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
         transition: color 0.3s ease;
@@ -197,8 +196,8 @@ html, body {
 
 /* ------------------- STUFF I MADE ------------------- */
 .slide#projects {
-    height: auto; /* ❗ Allow content to define height */
-    min-height: 100vh; /* But never smaller than full screen */
+    height: auto;
+    min-height: 100vh;
     justify-content: flex-start;
     padding-top: 80px;
 }
@@ -249,10 +248,13 @@ html, body {
 /* Horizontal layout for songs */
 .project-list.music-list {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
     justify-content: center;
     margin-top: 20px;
     flex-wrap: wrap;
-    gap: 40px;
 }
 
 .music-pair {
@@ -261,21 +263,12 @@ html, body {
     flex-wrap: nowrap;
 }
 
-.music-pair .project-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 300px;
-}
-
-.project-list.music-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    height: 100%;
-    justify-content: center;
-}
+    .music-pair .project-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 300px;
+    }
 
 /* Each song box */
 .music-entry {
@@ -287,38 +280,9 @@ html, body {
 
 /* Text above iframe */
 .project-text {
+    min-height: 90px;
     margin-bottom: 12px;
     text-align: center;
-}
-
-    .project-text h3 {
-        font-size: 20px;
-        margin-bottom: 4px;
-        color: white;
-        letter-spacing: 1.6px;
-        font-family: Coolvetica, sans-serif;
-        text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
-    }
-
-    .project-text p {
-        font-size: 16px;
-        color: #ccc;
-        letter-spacing: 1.15px;
-        font-family: Coolvetica, sans-serif;
-        line-height: 1.4;
-    }
-
-iframe {
-    border: none;
-    border-radius: 12px;
-    width: 100%;
-    height: 152px;
-}
-
-
-/* Fix for the text block above iframe */
-.project-text {
-    min-height: 90px; /* adjust to the tallest expected text */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -329,7 +293,7 @@ iframe {
         margin-bottom: 4px;
         color: white;
         letter-spacing: 1.6px;
-        font-family: Coolvetica, sans-serif;
+        font-family: Coolvetica, 'Barlow Condensed', sans-serif;
         text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
     }
 
@@ -337,7 +301,7 @@ iframe {
         font-size: 16px;
         color: #ccc;
         letter-spacing: 1.15px;
-        font-family: Coolvetica, sans-serif;
+        font-family: Coolvetica, 'Barlow Condensed', sans-serif;
         line-height: 1.4;
     }
 
@@ -383,7 +347,7 @@ iframe {
     letter-spacing: 1.5px;
     color: #ccc;
     pointer-events: none;
-    font-family: Coolvetica, sans-serif;
+    font-family: Coolvetica, 'Barlow Condensed', sans-serif;
 }
 
 .project-item.folder .thumbnail {
@@ -406,6 +370,7 @@ iframe {
         object-fit: cover;
     }
 
+/* Lightbox styles */
 .lightbox-overlay {
     position: fixed;
     top: 0;
@@ -430,7 +395,7 @@ iframe {
     max-width: 90vw;
     max-height: 90vh;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .lightbox-hint {
@@ -438,73 +403,34 @@ iframe {
     color: #aaa;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    font-family: Coolvetica, sans-serif;
+    font-family: Coolvetica, 'Barlow Condensed', sans-serif;
 }
 
 .lightbox-overlay.show .lightbox-hint {
     opacity: 1;
 }
 
-/* Regular slides align to top */
-.slide:not(#hero):not(#menu):not(#projects) {
-    justify-content: flex-start;
-}
-
 /* Contact wrapper for links only (not the title) */
 .contact-links-wrapper {
-    margin: auto 0; /* Vertically centers the contact list inside the page */
+    margin: auto 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
 }
 
-/* List layout */
-.contact-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 0;
+.text-contact a {
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+    text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
 }
-
-    .contact-list li {
-        font-family: Coolvetica, sans-serif;
-        font-size: 24px;
-        margin-bottom: 14px;
-    }
-
-    /* Contact link appearance */
-    .contact-list a {
-        color: white;
-        text-decoration: none;
-        text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
-        transition: color 0.2s ease-in-out;
-    }
-
-        .contact-list a:hover {
-            color: mediumpurple;
-        }
 
 /* Ensure the section-content fills vertical space */
 #contact .section-content {
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-
-/* Vertically center only the links block, not the heading */
-.contact-links-wrapper {
-    margin: auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* <-- This aligns links to the left */
-    gap: 10px;
-}
-
-/* Center the text and keep your existing styling */
-.text-contact a {
-    color: white;
-    font-size: 28px;
-    text-decoration: none;
-    text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
 }
 
 /* Back to Top Button Styling */
@@ -516,7 +442,7 @@ iframe {
     padding: 10px 14px;
     font-size: 18px;
     font-family: Coolvetica;
-    background-color: rgba(0, 0, 0, 0.0); /* Start with transparent background */
+    background-color: rgba(0, 0, 0, 0.0);
     border: double;
     border-radius: 3px;
     border-color: #eee;
@@ -524,7 +450,7 @@ iframe {
     z-index: 1000;
     opacity: 0;
     pointer-events: none;
-    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Set transform transition duration to match opacity */
+    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
     text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
     box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
 }
@@ -535,28 +461,27 @@ iframe {
     }
 
     #backToTop:hover {
-        background-color: mediumpurple; /* Fade to mediumpurple */
-        transition: background-color 0.3s ease; /* Smooth transition for background-color */
-        transform: scale(0.95); /* Slightly scale the button down to simulate a "press" */
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add shadow for a pressed effect */
+        background-color: mediumpurple;
+        transform: scale(0.95);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
 
-/* Just for the Who Am I title box */
-.whoami-title-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+/* Section alignment overrides */
+.slide:not(#hero):not(#menu):not(#projects) {
+    justify-content: flex-start;
 }
 
-/* Override any margin/padding issues for the title itself */
-/* Fix for consistent section title alignment */
-.title-whoami {
+/* ------------------- TEXT BLOCKS ------------------- */
+
+.title-whoami,
+.title-whatido,
+.title-aboutme {
     font-size: 48px;
-    margin-bottom: 50px; /* 👈 pushes the heading down slightly to match others */
     text-shadow: 2px 3px 2px rgba(128, 128, 128, 0.75);
+    margin-bottom: 50px;
 }
 
-/* Refined Who Am I section styling */
+/* WHO AM I */
 .text-whoami {
     letter-spacing: 1.5px;
     padding-top: 25px;
@@ -564,7 +489,7 @@ iframe {
     line-height: 1.8;
     margin: 12px 0;
     color: white;
-    font-family: Coolvetica, sans-serif;
+    font-family: Coolvetica, 'Barlow Condensed', sans-serif;
     text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
     text-align: left;
     max-width: 1000px;
@@ -572,45 +497,25 @@ iframe {
     margin-right: auto;
 }
 
-    /* Optional: make first line larger (the "hook") */
     .text-whoami:first-of-type {
-        font-size: 24px;
         font-weight: bold;
     }
 
-    /* Highlight effect */
     .text-whoami .highlight {
-        color: #b300ff;
+        color: mediumpurple;
         font-weight: bold;
         text-shadow: 0 0 4px rgba(179, 0, 255, 0.6);
     }
 
-/* Final line aligned to the right */
     .text-whoami.final-line {
         text-align: right;
         padding-right: 25px;
         font-style: italic;
-        color: white;
         font-size: 21px;
-        text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.7);
         margin-top: 35px;
     }
 
-/* Just for the What I Do title box */
-.whatido-title-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-/* Fix for consistent section title alignment */
-.title-whatido {
-    font-size: 48px;
-    margin-bottom: 50px; /* 👈 pushes the heading down slightly to match others */
-    text-shadow: 2px 3px 2px rgba(128, 128, 128, 0.75);
-}
-
-/* Refined What I Do section styling */
+/* WHAT I DO */
 .text-whatido {
     letter-spacing: 1.5px;
     padding-top: 20px;
@@ -618,7 +523,7 @@ iframe {
     line-height: 1.8;
     margin: 12px 0;
     color: white;
-    font-family: Coolvetica, sans-serif;
+    font-family: Coolvetica, 'Barlow Condensed', sans-serif;
     text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
     text-align: left;
     max-width: 1000px;
@@ -626,48 +531,26 @@ iframe {
     margin-right: auto;
 }
 
-    /* Optional: make first line larger (the "hook") */
     .text-whatido:first-of-type {
-        font-size: 24px;
         font-weight: bold;
     }
 
-    /* Highlight effect */
     .text-whatido .highlight {
-        color: #b300ff;
+        color: mediumpurple;
         font-weight: bold;
         text-shadow: 0 0 4px rgba(179, 0, 255, 0.6);
     }
 
-#whatido .section-content {
-    padding-bottom: 40px;
-}
+    .text-whatido.final-line {
+        text-align: right;
+        padding-right: 25px;
+        font-style: italic;
+        font-size: 21px;
+        color: white;
+        text-shadow: 1px 2px 2px rgba(128, 128, 128, 0.7);
+    }
 
-.text-whatido.final-line {
-    text-align: right;
-    padding-right: 25px;
-    font-style: italic;
-    color: white;
-    font-size: 21px;
-    text-shadow: 1px 2px 2px rgba(128, 128, 128, 0.7);
-}
-
-/* Just for the About Me title box */
-.aboutme-title-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-/* Override any margin/padding issues for the title itself */
-/* Fix for consistent section title alignment */
-.title-aboutme {
-    font-size: 48px;
-    margin-bottom: 30px; /* 👈 pushes the heading down slightly to match others */
-    text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
-}
-
-/* Refined About Me section styling */
+/* ABOUT ME */
 .text-aboutme {
     letter-spacing: 1.5px;
     padding-top: 10px;
@@ -675,7 +558,7 @@ iframe {
     line-height: 1.8;
     margin: 12px 0;
     color: lightgray;
-    font-family: Coolvetica, sans-serif;
+    font-family: Coolvetica, 'Barlow Condensed', sans-serif;
     text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
     text-align: left;
     max-width: 1000px;
@@ -683,38 +566,107 @@ iframe {
     margin-right: auto;
 }
 
-    /* Optional: make first line larger (the "hook") */
     .text-aboutme:first-of-type {
-        font-size: 24px;
         font-weight: bold;
     }
 
-    /* Highlight effect for important words */
     .text-aboutme .highlight {
         color: mediumpurple;
         font-weight: bold;
-        text-shadow: 0 0 4px rgba(179, 0, 255, 0.6);
-        text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75);
+        text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.75), 0 0 4px rgba(179, 0, 255, 0.6);
     }
 
-    /* Final line aligned to the right */
     .text-aboutme.final-line {
         text-align: right;
         padding-right: 25px;
         font-style: italic;
-        color: white;
         font-size: 21px;
+        color: white;
         text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.7);
     }
 
-/* Style for Spotify links */
+/* Spotify link hover */
 .spotify-link {
-    color: white; /* Makes the links white */
-    text-decoration: none; /* Removes underlining */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+    color: white;
     text-decoration: underline;
+    transition: color 0.3s ease;
 }
 
     .spotify-link:hover {
-        color: mediumpurple; /* Adds hover effect with color change */
+        color: mediumpurple;
     }
+
+/* ------------------- RESPONSIVE LAYOUT ------------------- */
+@media (max-width: 1024px) {
+    .project-list.images-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .menu-preview {
+        display: none;
+    }
+
+    .menu-left {
+        width: 100%;
+        align-items: center;
+    }
+
+        .menu-left ul {
+            text-align: center;
+        }
+}
+
+@media (max-width: 768px) {
+    .slide {
+        padding: 40px 30px;
+    }
+
+    .hero-title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .hero-subtext {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .project-list.images-list {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .music-pair {
+        flex-direction: column;
+    }
+
+    .text-aboutme,
+    .text-whoami,
+    .text-whatido {
+        font-size: 16px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .toggle-buttons button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .text-contact a {
+        font-size: 20px;
+    }
+
+    .projects-header {
+        font-size: 28px;
+    }
+
+    .section-content {
+        max-width: 100%;
+    }
+}

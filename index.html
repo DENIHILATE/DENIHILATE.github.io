@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>DENIHILATE</title> <!-- Browser tab title -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="DENIHILATE – Portfolio of Dennis: music, art, photography, and more." />
+    <title>DENIHILATE</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="scroll-container" id="scroll-container">
+    <main class="scroll-container" id="scroll-container">
 
         <!-- HERO SECTION -->
         <section class="slide" id="hero">
-            <h1 class="hero-title">This is</h1> <!-- Big text on hero page -->
-            <img src="denihilate-logo.png" alt="DENIHILATE Logo" id="logo">
-            <p class="hero-subtext">Discover more about who I am and what I do.</p> <!-- Subheading under logo -->
+            <h1 class="hero-title">This is</h1>
+            <img src="denihilate-logo.png" alt="Image 1" id="logo" />
+            <p class="hero-subtext">Discover more about who I am and what I do.</p>
         </section>
 
         <!-- MENU SECTION -->
-        <section class="slide" id="menu">
+        <section class="slide" id="menu" aria-label="Main Navigation">
             <div class="section-content">
                 <div class="menu-left">
                     <ul>
@@ -36,7 +38,6 @@
         <section class="slide" id="whoami">
             <div class="section-content scroll-inner whoami-flex-wrapper">
                 <h2 class="title-whoami">Who Am I?</h2>
-
                 <div class="whoami-text-wrapper">
                     <p class="text-whoami">
                         I don’t just dream things—I <span class="highlight">build</span> them. Everything I create, from visuals to music to code, has my fingerprints on it.
@@ -58,7 +59,6 @@
         <section class="slide" id="whatido">
             <div class="section-content scroll-inner">
                 <h2 class="title-whatido">What I Do</h2>
-
                 <div class="whatido-text-wrapper">
                     <p class="text-whatido">
                         I <span class="highlight">create</span>. From <span class="highlight">music</span> that resonates with emotion to <span class="highlight">digital art</span> that brings my imagination to life, I express myself through various mediums.
@@ -73,16 +73,16 @@
                         Alongside this, I immerse myself in <span class="highlight">gaming</span>, constantly seeking new experiences, and am even developing my own <span class="highlight">game</span>.
                     </p>
                     <p class="text-whatido">
-                        This <span class="highlight">website</span>? It’s my canvas, a space where I break free from convention and shape a digital identity that reflects my evolving creativity. Looking a bit Empty? Thats because My <span class="highlight">Story</span> has just Begun.
+                        This <span class="highlight">website</span>? It’s my canvas, a space where I break free from convention and shape a digital identity that reflects my evolving creativity. Looking a bit Empty? That's because My <span class="highlight">Story</span> has just Begun.
                     </p>
                 </div>
             </div>
         </section>
 
+        <!-- SECTION: About Me -->
         <section class="slide" id="aboutme">
             <div class="section-content scroll-inner">
                 <h2 class="title-aboutme">Things About Me</h2>
-
                 <div class="aboutme-text-wrapper">
                     <p class="text-aboutme">
                         I’m <span class="highlight">Dennis</span>, a <span class="highlight">21-year-old</span> from <span class="highlight">Germany</span>. I create <span class="highlight">music</span>, <span class="highlight">digital art</span>, and <span class="highlight">photography</span>, always pushing myself to <span class="highlight">learn</span> new things and expand my horizons.
@@ -105,7 +105,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- SECTION: My Knowledge -->
         <section class="slide" id="knowledge">
@@ -191,7 +190,6 @@
                 <!-- MUSIC PROJECTS -->
                 <div class="project-list music-list" id="music" style="display: none;">
                     <div class="music-pair">
-                        <!-- SONG 1 -->
                         <div class="music-block">
                             <div class="project-text">
                                 <h3 class="music-title-1">Main Song</h3>
@@ -203,7 +201,6 @@
                                     loading="lazy"></iframe>
                         </div>
 
-                        <!-- SONG 2 -->
                         <div class="music-block">
                             <div class="project-text">
                                 <h3 class="music-title-2">Chill Vibes</h3>
@@ -224,7 +221,6 @@
             <div class="section-content scroll-inner">
                 <h2 class="title-contact">Where You can Find Me</h2>
 
-                <!-- Wrapper to vertically center this block -->
                 <div class="contact-links-wrapper">
                     <p class="text-contact"><a class="link-spotify" href="https://open.spotify.com/artist/3HxotVOIg9MjgDloE4jUWj?si=2krcsJ5TRkqtQhtszZ4vxg" target="_blank">Main Spotify</a></p>
                     <p class="text-contact"><a class="link-spotify" href="https://open.spotify.com/artist/0aiv6XwMfCUOYVPgZh3CyS?si=COXJVLoISa2xjcFmAnWHaA" target="_blank">Secondary Spotify</a></p>
@@ -245,120 +241,122 @@
             </div>
         </div>
 
-        <!-- SMOOTH SCROLL + LIGHTBOX JS -->
-        <script>
-            let isScrolling = false;
-
-            function smoothScrollTo(element, targetY, duration = 900) {
-                const startY = element.scrollTop;
-                const distance = targetY - startY;
-                const startTime = performance.now();
-
-                function step(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const ease = 0.5 - Math.cos(progress * Math.PI) / 2;
-                    element.scrollTop = startY + distance * ease;
-
-                    if (progress < 1) {
-                        requestAnimationFrame(step);
-                    } else {
-                        isScrolling = false;
-                        element.classList.remove("lock-scroll");
-                    }
-                }
-                requestAnimationFrame(step);
-            }
-
-            document.addEventListener("wheel", function (e) {
-                if (isScrolling) return;
-                const container = document.querySelector(".scroll-container");
-                const sections = document.querySelectorAll(".slide");
-                let current = Math.round(container.scrollTop / window.innerHeight);
-                const goingDown = e.deltaY > 0;
-                const goingUp = e.deltaY < 0;
-
-                if ((goingDown && current >= sections.length - 1) || (goingUp && current <= 0)) {
-                    e.preventDefault();
-                    return;
-                }
-
-                if (goingDown) current++;
-                if (goingUp) current--;
-
-                isScrolling = true;
-                container.classList.add("lock-scroll");
-                smoothScrollTo(container, current * window.innerHeight, 900);
-                e.preventDefault();
-            }, { passive: false });
-
-            function openLightbox(imageSrc) {
-                const lightbox = document.getElementById('lightbox');
-                document.getElementById('lightbox-img').src = imageSrc;
-                lightbox.style.display = 'flex';
-                setTimeout(() => lightbox.classList.add('show'), 100);
-            }
-
-            function closeLightbox() {
-                const lightbox = document.getElementById('lightbox');
-                lightbox.classList.remove('show');
-                setTimeout(() => {
-                    lightbox.style.display = 'none';
-                    document.getElementById('lightbox-img').src = '';
-                }, 300);
-            }
-
-            function showProjects(type) {
-                const images = document.getElementById('images');
-                const music = document.getElementById('music');
-                const projectsSection = document.getElementById('projects');
-
-                if (type === 'images') {
-                    images.style.display = 'grid';
-                    music.style.display = 'none';
-                    projectsSection.style.paddingBottom = '40px';
-                } else {
-                    images.style.display = 'none';
-                    music.style.display = 'flex';
-                    projectsSection.style.paddingBottom = '160px'; // adds space when music is selected
-                }
-            }
-
-            document.querySelectorAll('.menu-left a').forEach(link => {
-                link.addEventListener('click', e => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href').substring(1);
-                    const target = document.getElementById(targetId);
-                    const container = document.querySelector('.scroll-container');
-                    const sections = Array.from(document.querySelectorAll('.slide'));
-                    const index = sections.indexOf(target);
-                    if (index !== -1) {
-                        isScrolling = true;
-                        container.classList.add("lock-scroll");
-                        smoothScrollTo(container, index * window.innerHeight, 900);
-                    }
-                });
-            });
-
-            // Show/hide back to top button
-            document.getElementById("scroll-container").addEventListener("scroll", function () {
-                const btn = document.getElementById("backToTop");
-                if (document.getElementById("scroll-container").scrollTop > window.innerHeight * 0.5) {
-                    btn.classList.add("visible");
-                } else {
-                    btn.classList.remove("visible");
-                }
-            });
-
-            // Scroll to top function
-            function scrollToTop() {
-                const container = document.getElementById("scroll-container");
-                smoothScrollTo(container, 0, 900); // 900ms same as menu click
-            }
-
-        </script>
-
         <!-- Back to Top Button -->
-        <button id="backToTop" onclick="scrollToTop()">▲ Top</button>
+        <button id="backToTop" onclick="scrollToTop()" aria-label="Back to Top">▲ Top</button>
+
+    </main>
+
+    <!-- SMOOTH SCROLL + LIGHTBOX JS -->
+    <script>
+        let isScrolling = false;
+
+        function smoothScrollTo(element, targetY, duration = 900) {
+            const startY = element.scrollTop;
+            const distance = targetY - startY;
+            const startTime = performance.now();
+
+            function step(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = 0.5 - Math.cos(progress * Math.PI) / 2;
+                element.scrollTop = startY + distance * ease;
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    isScrolling = false;
+                    element.classList.remove("lock-scroll");
+                }
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        document.addEventListener("wheel", function (e) {
+            if (isScrolling) return;
+
+            const container = document.querySelector(".scroll-container");
+            const sections = document.querySelectorAll(".slide");
+            let current = Math.round(container.scrollTop / window.innerHeight);
+            const goingDown = e.deltaY > 0;
+            const goingUp = e.deltaY < 0;
+
+            if ((goingDown && current >= sections.length - 1) || (goingUp && current <= 0)) {
+                e.preventDefault();
+                return;
+            }
+
+            if (goingDown) current++;
+            if (goingUp) current--;
+
+            isScrolling = true;
+            container.classList.add("lock-scroll");
+            smoothScrollTo(container, current * window.innerHeight, 900);
+            e.preventDefault();
+        }, { passive: false });
+
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = imageSrc;
+            lightbox.style.display = 'flex';
+            setTimeout(() => lightbox.classList.add('show'), 100);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('show');
+            setTimeout(() => {
+                lightbox.style.display = 'none';
+                document.getElementById('lightbox-img').src = '';
+            }, 300);
+        }
+
+        function showProjects(type) {
+            const images = document.getElementById('images');
+            const music = document.getElementById('music');
+            const projectsSection = document.getElementById('projects');
+
+            if (type === 'images') {
+                images.style.display = 'grid';
+                music.style.display = 'none';
+                projectsSection.style.paddingBottom = '40px';
+            } else {
+                images.style.display = 'none';
+                music.style.display = 'flex';
+                projectsSection.style.paddingBottom = '160px';
+            }
+        }
+
+        document.querySelectorAll('.menu-left a').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                const container = document.querySelector('.scroll-container');
+                const sections = Array.from(document.querySelectorAll('.slide'));
+                const index = sections.indexOf(target);
+                if (index !== -1) {
+                    isScrolling = true;
+                    container.classList.add("lock-scroll");
+                    smoothScrollTo(container, index * window.innerHeight, 900);
+                }
+            });
+        });
+
+        document.getElementById("scroll-container").addEventListener("scroll", function () {
+            const btn = document.getElementById("backToTop");
+            if (this.scrollTop > window.innerHeight * 0.5) {
+                btn.classList.add("visible");
+            } else {
+                btn.classList.remove("visible");
+            }
+        });
+
+        function scrollToTop() {
+            const container = document.getElementById("scroll-container");
+            smoothScrollTo(container, 0, 900);
+        }
+    </script>
+
 </body>
 </html>
