@@ -19,18 +19,25 @@
 
         <!-- MENU SECTION -->
         <section class="slide" id="menu" aria-label="Main Navigation">
-            <div class="section-content">
+            <div class="section-content menu-flex">
+
+                <!-- LEFT: Quick Jump Links -->
                 <div class="menu-left">
                     <ul>
-                        <li><a href="#whoami">Who am I?</a></li>
-                        <li><a href="#whatido">What I Do</a></li>
-                        <li><a href="#aboutme">Things about Me</a></li>
-                        <li><a href="#knowledge">My Knowledge</a></li>
-                        <li><a href="#projects">Some Stuff I Made</a></li>
-                        <li><a href="#contact">Where you can Find Me</a></li>
+                        <li><a href="#whoami" data-preview="whoami-preview.png">Who am I?</a></li>
+                        <li><a href="#whatido" data-preview="whatido-preview.png">What I Do</a></li>
+                        <li><a href="#aboutme" data-preview="aboutme-preview.png">Things about Me</a></li>
+                        <li><a href="#knowledge" data-preview="placeholder2.png">My Knowledge</a></li>
+                        <li><a href="#projects" data-preview="placeholder1.png">Some Stuff I Made</a></li>
+                        <li><a href="#contact" data-preview="placeholder2.png">Where you can Find Me</a></li>
                     </ul>
                 </div>
-                <div class="menu-preview"></div>
+
+                <!-- RIGHT: Preview Box (no extra wrapper!) -->
+                <div class="menu-preview">
+                    <img id="preview-img-1" class="preview-img" src="" alt="Preview 1" />
+                    <img id="preview-img-2" class="preview-img" src="" alt="Preview 2" />
+                </div>
             </div>
         </section>
 
@@ -358,5 +365,37 @@
         }
     </script>
 
+    <script>
+        const previewBox = document.querySelector('.menu-preview');
+        const img1 = document.getElementById('preview-img-1');
+        const img2 = document.getElementById('preview-img-2');
+        let showingImg1 = true;
+
+        document.querySelectorAll('.menu-left a').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                const src = link.getAttribute('data-preview');
+                if (!src) return;
+
+                const nextImg = showingImg1 ? img2 : img1;
+                const currentImg = showingImg1 ? img1 : img2;
+
+                nextImg.src = src;
+
+                // Reset animation
+                nextImg.classList.remove('visible');
+                void nextImg.offsetWidth;
+
+                currentImg.classList.remove('visible');
+                nextImg.classList.add('visible');
+
+                previewBox.classList.add('active');
+                showingImg1 = !showingImg1;
+            });
+
+            link.addEventListener('mouseleave', () => {
+                previewBox.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
