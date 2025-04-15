@@ -763,7 +763,11 @@ iframe {
             margin: 10px 0;
         }
 
-    .menu-preview {
-        display: none !important;
+        .menu-preview {
+            display: none !important;
+        }
+
+        #logo {
+            display: block !important;
+        }
     }
-}
