@@ -763,11 +763,48 @@ iframe {
             margin: 10px 0;
         }
 
-        .menu-preview {
-            display: none !important;
-        }
-
-        #logo {
-            display: block !important;
-        }
+    .menu-preview {
+        display: none !important;
     }
+
+    #logo {
+        display: block !important;
+        max-width: 80%;
+        margin-top: 40px;
+    }
+}
+
+/* Desktop Scaling for Higher Resolutions (1080p+, 1440p, 4K) */
+@media (min-width: 1440px) {
+    html {
+        font-size: 18px; /* Up from default */
+    }
+
+    .menu-left ul {
+        font-size: 28px;
+    }
+
+    #logo {
+        max-width: 700px;
+    }
+
+    .menu-preview {
+        height: 500px;
+        max-width: 700px;
+    }
+
+    .title-whoami,
+    .title-whatido,
+    .title-aboutme,
+    .title-knowledge,
+    .title-contact {
+        font-size: 56px;
+    }
+
+    .text-whoami,
+    .text-aboutme,
+    .text-whatido {
+        font-size: 22px;
+        line-height: 2;
+    }
+}
