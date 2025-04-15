@@ -808,3 +808,36 @@ iframe {
         line-height: 2;
     }
 }
+
+@media (min-width: 2560px) {
+    html {
+        font-size: 20px;
+    }
+
+    .menu-left ul {
+        font-size: 32px;
+    }
+
+    #logo {
+        max-width: 800px;
+    }
+
+    .menu-preview {
+        height: 600px;
+        max-width: 800px;
+    }
+
+    .title-whoami,
+    .title-whatido,
+    .title-aboutme,
+    .title-knowledge,
+    .title-contact {
+        font-size: 64px;
+    }
+
+    .text-whoami,
+    .text-aboutme,
+    .text-whatido {
+        font-size: 24px;
+    }
+}
