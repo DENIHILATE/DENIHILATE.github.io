@@ -245,8 +245,7 @@ html, body {
 .text-whoami,
 .text-whatido,
 .text-aboutme,
-.text-knowledge,
-.text-contact {
+.text-knowledge{
     font-size: clamp(16px, 1.4vw, 20px);
     line-height: 1.7;
     letter-spacing: 1.4px;
@@ -271,6 +270,7 @@ html, body {
     .text-whatido:first-of-type,
     .text-aboutme:first-of-type {
         font-weight: bold;
+        color: lightgray;
     }
 
     /* === HIGHLIGHT KEYWORDS === */
@@ -283,15 +283,16 @@ html, body {
     }
 
     /* === FINAL-LINE SPECIAL STYLING === */
-    .text-whoami.final-line {
-        text-align: right;
-        padding-right: 25px;
-        font-style: italic;
-        font-size: clamp(16px, 1vw, 18px);
-        margin-top: 35px;
-        color: white;
-        text-shadow: 2px 2px 2px rgba(64, 64, 64, 0.75);
-    }
+.text-whoami.final-line {
+    text-align: right;
+    padding-right: 25px;
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 35px;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(64, 64, 64, 0.75);
+    margin-top: 40px;
+}
 
 .text-whatido.final-line {
     text-align: right;
@@ -299,7 +300,8 @@ html, body {
     font-style: italic;
     font-size: 18px;
     color: white;
-    text-shadow: 1px 2px 2px rgba(64, 64, 64, 0.75);
+    text-shadow: 2px 2px 2px rgba(64, 64, 64, 0.75);
+    margin-top: 40px;
 }
 
 .text-aboutme.final-line {
@@ -309,6 +311,7 @@ html, body {
     font-size: 18px;
     color: white;
     text-shadow: 2px 2px 2px rgba(64, 64, 64, 0.75);
+    margin-top: 40px;
 }
 
 /* === KNOWLEDGE TEXT PLACEHOLDER === */
@@ -324,7 +327,7 @@ html, body {
     .title-aboutme,
     .title-knowledge,
     .title-contact {
-        text-align: center;
+        text-align: left;
     }
 
     .text-whoami,
@@ -343,9 +346,14 @@ html, body {
 
 @media (min-width: 1440px) {
     .project-list.images-list {
-        max-width: 1000px;
-        gap: 16px;
+        grid-template-columns: repeat(3, 350px);
+        gap: 20px;
+        max-width: none;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
+}
 
         .project-list.images-list .project-item {
             max-width: 300px;
@@ -354,9 +362,14 @@ html, body {
 
 @media (min-width: 2560px) {
     .project-list.images-list {
-        max-width: 1000px;
-        gap: 20px;
+        grid-template-columns: repeat(3, 400px);
+        gap: 24px;
+        max-width: none;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
+}
 
         .project-list.images-list .project-item {
             max-width: 260px;
@@ -387,11 +400,13 @@ html, body {
 .project-list.images-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 16px;
     justify-content: center;
-    margin: 40px auto 0 auto;
+    margin: 16px auto 0 auto;
     max-width: 1140px;
     width: 100%;
+    max-height: 900px;
+    height: 100%;
 }
 
 /* Music list layout */
@@ -540,6 +555,7 @@ html, body {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    text-align: left;
 }
 
 .text-contact a {
@@ -547,6 +563,7 @@ html, body {
     font-size: 28px;
     text-decoration: none;
     text-shadow: 2px 2px 2px rgba(64, 64, 64, 0.75);
+    text-align: left;
 }
 
 /* Platform-specific hover colors */
@@ -627,3 +644,15 @@ html, body {
     text-shadow: 2px 2px 2px rgba(64, 64, 64, 0.75);
 }
 
+.spotify-link,
+.spotify-link:link,
+.spotify-link:visited,
+.spotify-link:active {
+    color: white;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+    .spotify-link:hover{
+        color: rgb(180, 180, 180);
+    }
