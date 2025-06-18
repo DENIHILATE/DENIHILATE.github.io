@@ -245,7 +245,7 @@ html, body {
 .text-whoami,
 .text-whatido,
 .text-aboutme,
-.text-knowledge{
+.text-knowledge {
     font-size: clamp(16px, 1.4vw, 20px);
     line-height: 1.7;
     letter-spacing: 1.4px;
@@ -282,7 +282,7 @@ html, body {
         text-shadow: 0 0 4px rgba(179, 0, 255, 0.6);
     }
 
-    /* === FINAL-LINE SPECIAL STYLING === */
+/* === FINAL-LINE SPECIAL STYLING === */
 .text-whoami.final-line {
     text-align: right;
     padding-right: 25px;
@@ -344,48 +344,28 @@ html, body {
         }
 }
 
-@media (min-width: 1440px) {
-    .project-list.images-list {
-        grid-template-columns: repeat(3, 350px);
-        gap: 20px;
-        max-width: none;
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-    }
+
+
+.project-list.images-list .project-item {
+    max-width: 300px;
 }
 
-        .project-list.images-list .project-item {
-            max-width: 300px;
-        }
+
+
+.project-list.images-list .project-item {
+    max-width: 260px;
 }
 
-@media (min-width: 2560px) {
-    .project-list.images-list {
-        grid-template-columns: repeat(3, 400px);
-        gap: 24px;
-        max-width: none;
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-    }
+.thumbnail {
+    border-radius: 8px;
 }
 
-        .project-list.images-list .project-item {
-            max-width: 260px;
-        }
-
-    .thumbnail {
-        border-radius: 8px;
+    .thumbnail img {
+        object-fit: cover;
     }
 
-        .thumbnail img {
-            object-fit: cover;
-        }
-
-    .caption-wrapper {
-        padding-top: 4px;
-    }
+.caption-wrapper {
+    padding-top: 4px;
 }
 
 /* === PROJECTS SECTION (IMAGES + MUSIC) === */
@@ -653,6 +633,335 @@ html, body {
     transition: color 0.3s ease;
 }
 
-    .spotify-link:hover{
+    .spotify-link:hover {
         color: rgb(180, 180, 180);
     }
+
+:root {
+    --color-1: #00C6FF;
+    --color-2: #0072FF;
+    --color-3: #00FFC3;
+    --color-4: #FF61A6;
+}
+
+/* Main Wrapper */
+#gooeyNavWrapper {
+    position: fixed;
+    top: -80px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+    transition: top 0.4s, opacity 0.25s;
+}
+
+    #gooeyNavWrapper.visible {
+        top: 0;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* NAV BACKGROUND SEPARATED */
+    #gooeyNavWrapper .nav-bg {
+        background: rgba(0, 0, 0, 0.33);
+        backdrop-filter: blur(24px) saturate(180%);
+        border-radius: 2em;
+        padding: 0.5em 3em;
+        box-shadow: 0 2px 32px rgba(0, 0, 0, 0.17);
+        min-width: 540px;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* NAV LAYER WITH LINKS */
+    #gooeyNavWrapper nav {
+        position: relative;
+        z-index: 3;
+    }
+
+        #gooeyNavWrapper nav ul {
+            display: flex;
+            gap: 2em;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: white;
+        }
+
+            #gooeyNavWrapper nav ul li {
+                position: relative;
+                border-radius: 1.5em;
+                cursor: pointer;
+                font-size: 1.15em;
+                font-weight: bold;
+                margin: 0;
+                background: transparent;
+                display: flex;
+                align-items: center;
+                z-index: 3;
+            }
+
+                #gooeyNavWrapper nav ul li a {
+                    color: inherit;
+                    text-decoration: none;
+                    padding: 0.6em 1.4em;
+                    border-radius: 1.5em;
+                    font: inherit;
+                    background: transparent;
+                    position: relative;
+                    display: block;
+                }
+
+                /* Active State */
+                #gooeyNavWrapper nav ul li.active {
+                    background: white;
+                    color: black !important;
+                    z-index: 3;
+                }
+
+                    #gooeyNavWrapper nav ul li.active a {
+                        color: black !important;
+                    }
+
+                /* Hover State */
+                #gooeyNavWrapper nav ul li:hover {
+                    background: mediumpurple;
+                }
+
+                    #gooeyNavWrapper nav ul li:hover a {
+                        color: white !important;
+                    }
+
+                #gooeyNavWrapper nav ul li.active:hover {
+                    background: white;
+                }
+
+                    #gooeyNavWrapper nav ul li.active:hover a {
+                        color: black !important;
+                    }
+
+    /* PARTICLE CONTAINER (BETWEEN BACKGROUND AND TEXT) */
+    #gooeyNavWrapper .effect.filter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+/* PARTICLE STYLE */
+.particle, .point {
+    display: block;
+    opacity: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transform-origin: center;
+}
+
+.particle {
+    --time: 5s;
+    position: absolute;
+    top: calc(50% - 18px);
+    left: calc(50% - 18px);
+    animation: particle calc(var(--time)) ease 1 -350ms;
+}
+
+.point {
+    background: white !important;
+    opacity: 1 !important;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    animation: point calc(var(--time)) ease 1 -350ms;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+@keyframes particle {
+    0% {
+        transform: rotate(0deg) translate(var(--start-x), var(--start-y));
+        opacity: 1;
+    }
+
+    70% {
+        transform: rotate(calc(var(--rotate) * 0.5)) translate(calc(var(--end-x) * 1.2), calc(var(--end-y) * 1.2));
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(calc(var(--rotate))) translate(var(--end-x), var(--end-y));
+        opacity: 1;
+    }
+}
+
+@keyframes point {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(var(--scale));
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* === UNIVERSAL RESPONSIVE GRID FIX === */
+.project-list.images-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(12px, 2vw, 32px);
+    justify-content: center;
+    margin: 16px auto 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+    .project-list.images-list .project-item {
+        max-width: 100%;
+    }
+
+.music-pair {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(20px, 4vw, 60px);
+    justify-content: center;
+}
+
+.whoami-text-wrapper,
+.whatido-text-wrapper,
+.aboutme-text-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
+}
+
+/* === Page-Specific Title Positioning Fix === */
+#whoami .title-whoami {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    z-index: 10;
+}
+
+#whatido .title-whatido {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    z-index: 10;
+}
+
+#aboutme .title-aboutme {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    z-index: 10;
+}
+
+#knowledge .title-knowledge {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    z-index: 10;
+}
+
+#projects .title-projects {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    z-index: 10;
+}
+
+#contact .title-contact {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    z-index: 10;
+}
+
+/* Make slide sections the positioning context */
+.slide {
+    position: relative;
+}
+
+/* Center content in the Projects section */
+#projects .section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#projects .projects-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#projects .images-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+#projects .title-projects {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Button container */
+#projects .filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Center the image grid */
+#projects .images-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    justify-items: center;
+    align-items: start;
+}

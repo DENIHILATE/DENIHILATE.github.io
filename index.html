@@ -125,7 +125,7 @@
         <section class="slide" id="projects">
             <div class="section-content scroll-inner">
                 <div class="projects-header">
-                    <h2 class="projects-title">Stuff I Made</h2>
+                    <h2 class="title-projects">Stuff I Made</h2>
                     <div class="toggle-buttons">
                         <button onclick="showProjects('images')">Images</button>
                         <button onclick="showProjects('music')">Music</button>
@@ -203,7 +203,7 @@
                                 <p class="music-desc-1">This is one of my latest tracks.</p>
                             </div>
                             <iframe src="https://open.spotify.com/embed/track/6IZk7UqTETtccTGkVV2paF?utm_source=generator&theme=0"
-                                    width="100%" height="152" frameborder="0" allowfullscreen=""
+                                    style="width: 100%; height: 315px;" frameborder="0" allowfullscreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"></iframe>
                         </div>
@@ -214,7 +214,7 @@
                                 <p class="music-desc-2">If you're into something calmer, try this.</p>
                             </div>
                             <iframe src="https://open.spotify.com/embed/track/5s5DIELC5FSY2j1hSKjlMr?utm_source=generator&theme=0"
-                                    width="100%" height="152" frameborder="0" allowfullscreen=""
+                                    style="width: 100%; height: 315px;" frameborder="0" allowfullscreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"></iframe>
                         </div>
@@ -253,8 +253,54 @@
 
     </main>
 
-    <!-- SMOOTH SCROLL + LIGHTBOX JS -->
+    <!--SMOOTH SCROLL QUICK JUMP DONT REMOVE-->
+
     <script>
+        // SMOOTH SCROLL FOR SIDEBAR LINKS (.menu-left a)
+        document.querySelectorAll('.menu-left a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const scrollContainer = document.querySelector('.scroll-container');
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+
+                if (!target || !scrollContainer) return;
+
+                const sections = Array.from(scrollContainer.querySelectorAll('.slide'));
+                const index = sections.indexOf(target);
+
+                if (index !== -1) {
+                    // Lock scroll just like GooeyNav
+                    scrollContainer.classList.add('lock-scroll');
+                    const startY = scrollContainer.scrollTop;
+                    const endY = index * window.innerHeight;
+                    const duration = 900;
+                    const startTime = performance.now();
+
+                    function step(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const ease = 0.5 - Math.cos(progress * Math.PI) / 2;
+                        scrollContainer.scrollTop = startY + (endY - startY) * ease;
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            scrollContainer.classList.remove('lock-scroll');
+                        }
+                    }
+
+                    requestAnimationFrame(step);
+                }
+            });
+        });
+    </script>
+
+    <!--SMOOTH SCROLL QUICK JUMP DONT REMOVE-->
+    <!--SMOOTH SCROLL MOUSE DONT REMOVE-->
+
+    <script>
+        // Manual smooth scroll for mouse wheel (section by section)
         let isScrolling = false;
 
         function smoothScrollTo(element, targetY, duration = 900) {
@@ -301,101 +347,241 @@
             smoothScrollTo(container, current * window.innerHeight, 900);
             e.preventDefault();
         }, { passive: false });
-
-        function openLightbox(imageSrc) {
-            const lightbox = document.getElementById('lightbox');
-            document.getElementById('lightbox-img').src = imageSrc;
-            lightbox.style.display = 'flex';
-            setTimeout(() => lightbox.classList.add('show'), 100);
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('show');
-            setTimeout(() => {
-                lightbox.style.display = 'none';
-                document.getElementById('lightbox-img').src = '';
-            }, 300);
-        }
-
-        function showProjects(type) {
-            const images = document.getElementById('images');
-            const music = document.getElementById('music');
-            const projectsSection = document.getElementById('projects');
-
-            if (type === 'images') {
-                images.style.display = 'grid';
-                music.style.display = 'none';
-                projectsSection.style.paddingBottom = '40px';
-            } else {
-                images.style.display = 'none';
-                music.style.display = 'flex';
-                projectsSection.style.paddingBottom = '160px';
-            }
-        }
-
-        document.querySelectorAll('.menu-left a').forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const target = document.getElementById(targetId);
-                const container = document.querySelector('.scroll-container');
-                const sections = Array.from(document.querySelectorAll('.slide'));
-                const index = sections.indexOf(target);
-                if (index !== -1) {
-                    isScrolling = true;
-                    container.classList.add("lock-scroll");
-                    smoothScrollTo(container, index * window.innerHeight, 900);
-                }
-            });
-        });
-
-        document.getElementById("scroll-container").addEventListener("scroll", function () {
-            const btn = document.getElementById("backToTop");
-            if (this.scrollTop > window.innerHeight * 0.5) {
-                btn.classList.add("visible");
-            } else {
-                btn.classList.remove("visible");
-            }
-        });
-
-        function scrollToTop() {
-            const container = document.getElementById("scroll-container");
-            smoothScrollTo(container, 0, 900);
-        }
     </script>
+
+    <!--SMOOTH SCROLL MOUSE DONT REMOVE-->
+    <!-- PAGES  ABOVE    HERE-->
+    <!--                     -->
+    <!-- GOOEY   NAV    BELOW-->
+    <!-- Gooey Navigation Bar -->
+    <div class="gooey-nav-container" id="gooeyNavWrapper">
+        <nav>
+            <ul id="gooey-nav">
+                <li data-target="whoami"><a href="#whoami">Who am I?</a></li>
+                <li data-target="whatido"><a href="#whatido">What I Do</a></li>
+                <li data-target="aboutme"><a href="#aboutme">Things about Me</a></li>
+                <li data-target="knowledge"><a href="#knowledge">My Knowledge</a></li>
+                <li data-target="projects"><a href="#projects">Some Stuff I Made</a></li>
+                <li data-target="contact"><a href="#contact">Where you can Find Me</a></li>
+            </ul>
+        </nav>
+        <span class="effect filter"></span>
+    </div>
 
     <script>
-        const previewBox = document.querySelector('.menu-preview');
-        const img1 = document.getElementById('preview-img-1');
-        const img2 = document.getElementById('preview-img-2');
-        let showingImg1 = true;
+        (function () {
+            let blockScrollSync = false;
+            let isScrolling = false;
 
-        document.querySelectorAll('.menu-left a').forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                const src = link.getAttribute('data-preview');
-                if (!src) return;
+            const navWrapper = document.getElementById('gooeyNavWrapper');
+            const nav = navWrapper.querySelector('nav ul');
+            const filter = navWrapper.querySelector('.effect.filter');
+            const navItems = Array.from(nav.children);
+            const scrollContainer = document.getElementById('scroll-container');
 
-                const nextImg = showingImg1 ? img2 : img1;
-                const currentImg = showingImg1 ? img1 : img2;
+            function noise(n = 1) {
+                return n / 2 - Math.random() * n;
+            }
 
-                nextImg.src = src;
+            function getXY(distance, pointIndex, totalPoints) {
+                const angle = ((360 + noise(8)) / totalPoints) * pointIndex * (Math.PI / 180);
+                return [distance * Math.cos(angle), distance * Math.sin(angle)];
+            }
 
-                // Reset animation
-                nextImg.classList.remove('visible');
-                void nextImg.offsetWidth;
+            function createParticle(i, t, d, r, colorList) {
+                let rotate = noise(r / 10);
+                return {
+                    start: getXY(d[0], navItems.length - i, navItems.length),
+                    end: getXY(d[1] + noise(7), navItems.length - i, navItems.length),
+                    time: t,
+                    scale: 1 + noise(0.2),
+                    color: colorList[Math.floor(Math.random() * colorList.length)],
+                    rotate: rotate > 0 ? (rotate + r / 20) * 10 : (rotate - r / 20) * 10,
+                };
+            }
 
-                currentImg.classList.remove('visible');
-                nextImg.classList.add('visible');
+            function makeParticles(element) {
+                const d = [150, 30]; // More spread at start (150px), and still decent end radius (30px)
+                const r = 100;
+                const colorList = [1, 2, 3, 1, 2, 3, 1, 4];
+                const animationTime = 600;
+                const timeVariance = 300;
+                const bubbleTime = animationTime * 2 + timeVariance;
+                element.style.setProperty("--time", `${bubbleTime}ms`);
 
-                previewBox.classList.add('active');
-                showingImg1 = !showingImg1;
+                for (let i = 0; i < 15; i++) {
+                    const t = animationTime * 2 + noise(timeVariance * 2);
+                    const p = createParticle(i, t, d, r, colorList);
+                    setTimeout(() => {
+                        const particle = document.createElement("span");
+                        const point = document.createElement("span");
+                        particle.classList.add("particle");
+                        particle.style.setProperty("--start-x", `${p.start[0]}px`);
+                        particle.style.setProperty("--start-y", `${p.start[1]}px`);
+                        particle.style.setProperty("--end-x", `${p.end[0]}px`);
+                        particle.style.setProperty("--end-y", `${p.end[1]}px`);
+                        particle.style.setProperty("--time", `${p.time}ms`);
+                        particle.style.setProperty("--scale", `${p.scale}`);
+                        particle.style.setProperty("--color", `var(--color-${p.color}, white)`);
+                        particle.style.setProperty("--rotate", `${p.rotate}deg`);
+                        point.classList.add("point");
+                        particle.appendChild(point);
+                        element.appendChild(particle);
+                        requestAnimationFrame(() => {
+                            element.classList.add("active");
+                        });
+                        setTimeout(() => {
+                            try { element.removeChild(particle); } catch { }
+                        }, t);
+                    }, 30);
+                }
+            }
+
+            function updateEffectPosition(element) {
+                if (!navWrapper || !filter) return;
+                const containerRect = navWrapper.getBoundingClientRect();
+                const pos = element.getBoundingClientRect();
+                const styles = {
+                    left: `${pos.x - containerRect.x}px`,
+                    top: `${pos.y - containerRect.y}px`,
+                    width: `${pos.width}px`,
+                    height: `${pos.height}px`
+                };
+                Object.assign(filter.style, styles);
+            }
+
+            navItems.forEach((li) => {
+                li.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    blockScrollSync = true;
+
+                    navItems.forEach(item => item.classList.remove('active'));
+                    li.classList.add('active');
+                    updateEffectPosition(li);
+
+                    filter.querySelectorAll('.particle').forEach((p) => filter.removeChild(p));
+                    makeParticles(filter);
+
+                    const sectionId = li.querySelector('a').getAttribute('href');
+                    if (sectionId && sectionId.startsWith('#')) {
+                        const section = document.querySelector(sectionId);
+                        if (section && scrollContainer) {
+                            const sections = Array.from(scrollContainer.querySelectorAll('.slide'));
+                            const index = sections.indexOf(section);
+                            if (index !== -1) {
+                                isScrolling = true;
+                                scrollContainer.classList.add("lock-scroll");
+                                smoothScrollTo(scrollContainer, index * window.innerHeight, 900);
+                            }
+                        }
+                    }
+
+                    setTimeout(() => {
+                        blockScrollSync = false;
+                    }, 1000);
+                });
             });
 
-            link.addEventListener('mouseleave', () => {
-                previewBox.classList.remove('active');
-            });
-        });
+            if (scrollContainer) {
+                const sectionIdToNav = {};
+                navItems.forEach(item => {
+                    sectionIdToNav[item.getAttribute('data-target')] = item;
+                });
+
+                const targetSections = Array.from(document.querySelectorAll('.slide')).filter(
+                    section => sectionIdToNav[section.id]
+                );
+
+                function updateActiveNavOnScroll() {
+                    if (blockScrollSync) return;
+
+                    let minDiff = Infinity;
+                    let activeSectionIndex = 0;
+                    targetSections.forEach((section, i) => {
+                        const rect = section.getBoundingClientRect();
+                        const diff = Math.abs(rect.top);
+                        if (diff < minDiff) {
+                            minDiff = diff;
+                            activeSectionIndex = i;
+                        }
+                    });
+
+                    navItems.forEach(item => item.classList.remove('active'));
+                    const activeItem = navItems[activeSectionIndex];
+                    if (activeItem) {
+                        activeItem.classList.add('active');
+                        updateEffectPosition(activeItem);
+                    }
+                }
+
+                scrollContainer.addEventListener('scroll', updateActiveNavOnScroll);
+                updateActiveNavOnScroll();
+            }
+
+            function updateGooeyNavVisibility() {
+                if (!scrollContainer) return;
+                const scrollTop = scrollContainer.scrollTop;
+                const slideHeight = window.innerHeight;
+                const currentIndex = Math.round(scrollTop / slideHeight);
+                if (currentIndex >= 2) {
+                    navWrapper.classList.add("visible");
+                } else {
+                    navWrapper.classList.remove("visible");
+                }
+            }
+
+            if (scrollContainer) {
+                scrollContainer.addEventListener("scroll", updateGooeyNavVisibility);
+                window.addEventListener('DOMContentLoaded', updateGooeyNavVisibility);
+            }
+
+            // Init
+            if (navItems[0]) {
+                navItems[0].classList.add('active');
+                updateEffectPosition(navItems[0]);
+                makeParticles(filter);
+            }
+
+            function smoothScrollTo(element, targetY, duration = 900) {
+                const startY = element.scrollTop;
+                const distance = targetY - startY;
+                const startTime = performance.now();
+                function step(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const ease = 0.5 - Math.cos(progress * Math.PI) / 2;
+                    element.scrollTop = startY + distance * ease;
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        isScrolling = false;
+                        element.classList.remove("lock-scroll");
+                    }
+                }
+                requestAnimationFrame(step);
+            }
+
+            document.addEventListener("wheel", function (e) {
+                if (isScrolling || !scrollContainer) return;
+
+                const sections = scrollContainer.querySelectorAll(".slide");
+                let current = Math.round(scrollContainer.scrollTop / window.innerHeight);
+                const goingDown = e.deltaY > 0;
+                const goingUp = e.deltaY < 0;
+
+                if ((goingDown && current >= sections.length - 1) || (goingUp && current <= 0)) {
+                    e.preventDefault();
+                    return;
+                }
+
+                current += goingDown ? 1 : -1;
+                isScrolling = true;
+                scrollContainer.classList.add("lock-scroll");
+                smoothScrollTo(scrollContainer, current * window.innerHeight, 900);
+                e.preventDefault();
+            }, { passive: false });
+        })();
     </script>
+
 </body>
-</html>
+</html >
